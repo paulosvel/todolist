@@ -7,6 +7,7 @@ import { todoCleared } from "../store/features/todo/todoSlice";
 
 const Card = () => {
   const todos = useSelector((state) => state.todos.todos);
+  const toggleForm = useSelector((state) => state.todos.toggleForm);
   const dispatch = useDispatch();
   return (
     <Box
@@ -26,8 +27,10 @@ const Card = () => {
       <Box sx={{ textAlign: "center" }}>
         <h1>Todo List</h1>
 
-        <AddTodoForm />
-        <UpdateTodoForm />
+       
+        {toggleForm ? <AddTodoForm />
+        : <UpdateTodoForm />}
+
         <ul>
           {todos.map((todo) => (
             <li key={todo.id}>
@@ -37,7 +40,7 @@ const Card = () => {
         </ul>
       </Box>
       <Button
-      onClick={() => dispatch(todoCleared())}
+        onClick={() => dispatch(todoCleared())}
         variant="contained"
         sx={{
           backgroundColor: "red",

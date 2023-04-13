@@ -5,7 +5,7 @@ const UpdateTodoForm = () => {
     return (
         <Box sx={{display:"flex", flexDirection:"row",marginTop:"5px",}}>
             
-            <TextField size="small" label="Add todo" variant="outlined" sx={{marginRight:"5px"}}></TextField>
+            <TextField size="small" label="Update todo" variant="outlined" sx={{marginRight:"5px"}}></TextField>
             <Button variant="contained"  sx={{width:"100px", backgroundColor:"orange"}}>Update</Button>
         </Box>
     );

@@ -5,6 +5,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import { useState } from "react";
 import { todoDeleted } from "../store/features/todo/todoSlice";
 import { useDispatch } from "react-redux";
+import { toggleInputForm } from "../store/features/todo/todoSlice";
 
 
 const SingleTodoCard = (props) => {
@@ -25,7 +26,7 @@ const SingleTodoCard = (props) => {
 
         <Box sx={{}}>
           <CheckBoxIcon onClick={()=> setDone(!done)} sx={{marginLeft:"10px", cursor:"pointer"}}></CheckBoxIcon>
-          <EditIcon sx={{marginLeft:"10px",cursor:"pointer"}}></EditIcon>
+          <EditIcon onClick={()=>dispatch(toggleInputForm())} sx={{marginLeft:"10px",cursor:"pointer"}}></EditIcon>
           <DeleteIcon onClick={()=>dispatch(todoDeleted(props.id))} sx={{marginLeft:"10px", cursor:"pointer"}}> </DeleteIcon>
         </Box>
       </Box>

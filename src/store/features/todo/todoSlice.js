@@ -32,9 +32,12 @@ export const todoSlice = createSlice({
     todoDeleted:(state,action)=>{
       state.todos=state.todos.filter((todo)=>todo.id!==action.payload);
     },
+    toggleInputForm: (state) =>{
+      state.toggleForm = !state.toggleForm;
+    },
   },
 });
 
-export const {todoAdded,todoCleared,todoDeleted} = todoSlice.actions;
+export const {todoAdded,todoCleared,todoDeleted, toggleInputForm} = todoSlice.actions;
 export default todoSlice.reducer;
 

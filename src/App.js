@@ -1,6 +1,6 @@
 import "./App.css";
 import { Box } from "@mui/material";
-import Card from "./Card";
+import Card from "./components/Card";
 
 
 

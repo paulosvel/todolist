@@ -1,10 +1,28 @@
 import { Box } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import EditIcon from "@mui/icons-material/Edit";
 const SingleTodoCard = (props) => {
-    return (
-        <Box>
-<h1>{props.name}</h1>
+  return (
+    <>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          
+        }}
+      >
+        <span style={{ fontFamily: "Fantasy" }}>{props.name}</span>
+
+        <Box sx={{}}>
+          <CheckBoxIcon sx={{marginLeft:"10px"}}></CheckBoxIcon>
+          <EditIcon sx={{marginLeft:"10px"}}></EditIcon>
+          <DeleteIcon sx={{marginLeft:"10px"}}> </DeleteIcon>
         </Box>
-    )
+      </Box>
+    </>
+  );
 };
 
 export default SingleTodoCard;

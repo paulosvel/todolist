@@ -31,7 +31,7 @@ const Card = () => {
         <ul>
           {todos.map((todo) => (
             <li key={todo.id}>
-              <SingleTodoCard name={todo.name} />
+              <SingleTodoCard id={todo.id} name={todo.name} />
             </li>
           ))}
         </ul>

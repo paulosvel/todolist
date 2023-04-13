@@ -2,7 +2,15 @@ import { Box } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import EditIcon from "@mui/icons-material/Edit";
+import { useState } from "react";
+import { todoDeleted } from "../store/features/todo/todoSlice";
+import { useDispatch } from "react-redux";
+
+
 const SingleTodoCard = (props) => {
+    const [done, setDone] = useState(false);
+    const dispatch = useDispatch();
+
   return (
     <>
       <Box
@@ -13,12 +21,12 @@ const SingleTodoCard = (props) => {
           
         }}
       >
-        <span style={{ fontFamily: "Fantasy" }}>{props.name}</span>
+<span className={done ? "" : "font-bold"} style={{ fontFamily: "", textDecoration: done ? "line-through" : "none" }}>{props.name}</span>
 
         <Box sx={{}}>
-          <CheckBoxIcon sx={{marginLeft:"10px"}}></CheckBoxIcon>
-          <EditIcon sx={{marginLeft:"10px"}}></EditIcon>
-          <DeleteIcon sx={{marginLeft:"10px"}}> </DeleteIcon>
+          <CheckBoxIcon onClick={()=> setDone(!done)} sx={{marginLeft:"10px", cursor:"pointer"}}></CheckBoxIcon>
+          <EditIcon sx={{marginLeft:"10px",cursor:"pointer"}}></EditIcon>
+          <DeleteIcon onClick={()=>dispatch(todoDeleted(props.id))} sx={{marginLeft:"10px", cursor:"pointer"}}> </DeleteIcon>
         </Box>
       </Box>
     </>
